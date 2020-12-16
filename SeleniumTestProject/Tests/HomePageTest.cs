@@ -1,4 +1,4 @@
-using SeleniumTestProject.Init;
+п»їusing SeleniumTestProject.Init;
 using SeleniumTestProject.Pages;
 using Xunit;
 
@@ -19,25 +19,25 @@ namespace SeleniumTestProject.Tests
         [Fact]
         public void TestSearchField()
         {
-            string query = "Муром";
+            string query = "РњСѓСЂРѕРј";
             //_initializer.EnsureServerRestart();
             _page.Navigate();
 
             _page.NewSearchQuery(query);
 
             Assert.Equal(query, _page.CheckCurrentQueryText());
-            Assert.DoesNotContain("осадки в Европе", _page.Title);
+            Assert.DoesNotContain("РѕСЃР°РґРєРё РІ Р•РІСЂРѕРїРµ", _page.Title);
         }
 
         [Fact]
         public void NavigationViaSearchFTest()
         {
-            string query = "Муром";
+            string query = "РњСѓСЂРѕРј";
             _page.Navigate();
 
             _page.NewSearchQuery(query);
             _page.SearchQueryGo();
-            Assert.Contains("Муром", _page.Title);
+            Assert.Contains("РњСѓСЂРѕРј", _page.Title);
             Assert.Throws<OpenQA.Selenium.NoSuchElementException>(() => _page.isInformerPage());
         }
 
@@ -46,24 +46,24 @@ namespace SeleniumTestProject.Tests
         {
             _page.Navigate();
             _page.NewsGo();
-            Assert.Contains("Новости погоды", _page.Title);
-            Assert.DoesNotContain("осадки в Европе", _page.Title);
+            Assert.Contains("РќРѕРІРѕСЃС‚Рё РїРѕРіРѕРґС‹", _page.Title);
+            Assert.DoesNotContain("РѕСЃР°РґРєРё РІ Р•РІСЂРѕРїРµ", _page.Title);
             Assert.Throws<OpenQA.Selenium.NoSuchElementException>(() => _page.isInformerPage());
 
             _page.NewsAutoGo();
-            Assert.Contains("Автомобили", _page.Title);
+            Assert.Contains("РђРІС‚РѕРјРѕР±РёР»Рё", _page.Title);
             _page.NewsAnimalsGo();
-            Assert.Contains("Животные", _page.Title);
+            Assert.Contains("Р–РёРІРѕС‚РЅС‹Рµ", _page.Title);
             _page.NewsScienceGo();
-            Assert.Contains("Наука", _page.Title);
+            Assert.Contains("РќР°СѓРєР°", _page.Title);
             _page.NewsNewYearGo();
-            Assert.Contains("Новый год", _page.Title);
+            Assert.Contains("РќРѕРІС‹Р№ РіРѕРґ", _page.Title);
             _page.NewsWeatherGo();
-            Assert.Contains("О погоде", _page.Title);
+            Assert.Contains("Рћ РїРѕРіРѕРґРµ", _page.Title);
             _page.NewsNatureGo();
-            Assert.Contains("Природа", _page.Title);
+            Assert.Contains("РџСЂРёСЂРѕРґР°", _page.Title);
             _page.NewsCoronavirusGo();
-            Assert.Contains("коронавирус", _page.Title);
+            Assert.Contains("РєРѕСЂРѕРЅР°РІРёСЂСѓСЃ", _page.Title);
         }
 
         [Fact]
@@ -71,18 +71,18 @@ namespace SeleniumTestProject.Tests
         {
             _page.Navigate();
             _page.MapsGo();
-            Assert.Contains("осадки в Европе", _page.Title);
+            Assert.Contains("РѕСЃР°РґРєРё РІ Р•РІСЂРѕРїРµ", _page.Title);
             Assert.Throws<OpenQA.Selenium.NoSuchElementException>(() => _page.isInformerPage());
 
 
             _page.MapsWindGo();
-            Assert.Contains("ветер", _page.Title);
+            Assert.Contains("РІРµС‚РµСЂ", _page.Title);
             _page.MapsPrcGo();
-            Assert.Contains("осадки", _page.Title);
+            Assert.Contains("РѕСЃР°РґРєРё", _page.Title);
             _page.MapsCloudsGo();
-            Assert.Contains("облачность", _page.Title);
+            Assert.Contains("РѕР±Р»Р°С‡РЅРѕСЃС‚СЊ", _page.Title);
             _page.MapsTempGo();
-            Assert.Contains("температура", _page.Title);
+            Assert.Contains("С‚РµРјРїРµСЂР°С‚СѓСЂР°", _page.Title);
         }
 
         [Fact]
@@ -91,14 +91,14 @@ namespace SeleniumTestProject.Tests
             _page.Navigate();
             _page.InformersGo();
             Assert.True(_page.isInformerPage());
-            Assert.DoesNotContain("осадки в Европе", _page.Title);
+            Assert.DoesNotContain("РѕСЃР°РґРєРё РІ Р•РІСЂРѕРїРµ", _page.Title);
 
             _page.InformersSimpleGo();
-            Assert.Contains("Информер", _page.Title);
+            Assert.Contains("РРЅС„РѕСЂРјРµСЂ", _page.Title);
             _page.InformersContstructorGo();
-            Assert.Contains("Конструктор", _page.Title);
+            Assert.Contains("РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ", _page.Title);
             _page.InformersOfferGo();
-            Assert.Contains("Условия", _page.Title);
+            Assert.Contains("РЈСЃР»РѕРІРёСЏ", _page.Title);
         }
 
         [Fact]
@@ -106,16 +106,16 @@ namespace SeleniumTestProject.Tests
         {
             _page.Navigate();
             _page.SoftGo();
-            Assert.Contains("погодные приложения", _page.Title);
-            Assert.DoesNotContain("осадки в Европе", _page.Title);
+            Assert.Contains("РїРѕРіРѕРґРЅС‹Рµ РїСЂРёР»РѕР¶РµРЅРёСЏ", _page.Title);
+            Assert.DoesNotContain("РѕСЃР°РґРєРё РІ Р•РІСЂРѕРїРµ", _page.Title);
             Assert.Throws<OpenQA.Selenium.NoSuchElementException>(() => _page.isInformerPage());
 
             _page.SoftMobileGo();
-            Assert.Contains("для мобильных устройств", _page.Title);
+            Assert.Contains("РґР»СЏ РјРѕР±РёР»СЊРЅС‹С… СѓСЃС‚СЂРѕР№СЃС‚РІ", _page.Title);
             _page.SoftDesktopGo();
-            Assert.Contains("на рабочий стол", _page.Title);
+            Assert.Contains("РЅР° СЂР°Р±РѕС‡РёР№ СЃС‚РѕР»", _page.Title);
             _page.SoftTVGo();
-            Assert.Contains("для телевизоров", _page.Title);
+            Assert.Contains("РґР»СЏ С‚РµР»РµРІРёР·РѕСЂРѕРІ", _page.Title);
         }
     }
 }
